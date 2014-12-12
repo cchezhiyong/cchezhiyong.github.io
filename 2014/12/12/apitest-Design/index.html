@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>接口测试框架2W1H | hezhiyong`s blog</title>
+  <meta name="author" content="hezhiyong">
+  
+  <meta name="description" content="selenium | robotframwrok | cucumber | TDD | BDD | juint | testng | fitnesse">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="接口测试框架2W1H"/>
+  <meta property="og:site_name" content="hezhiyong`s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">hezhiyong`s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 接口测试框架2W1H</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h1 id="Why">Why</h1>
+<p>为什么要弄这么一个框架？</p>
+<ul>
+<li>测试代码易读性差</li>
+<li>没有集成stub和mock</li>
+<li>数据库和NoSQL测试不够友好</li>
+<li>测试基类继承和重载功能不够完善</li>
+</ul>
+<p>我设想的框架是这样子的：</p>
+<figure class="highlight feature"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">@checkorder</span></div><div class="line"><span class="keyword">Feature</span>: Check Order</div><div class="line">  为了保证订单的准确性，在提交订单之前，对订单进行验对。</div><div class="line"></div><div class="line">  <span class="keyword">Background</span>:</div><div class="line">    <span class="keyword">Given</span> 我根据<span class="string">"./data/shipping_region.txt"</span>设置配送范围</div><div class="line"></div><div class="line">  <span class="keyword">Scenario</span> <span class="keyword">Outline</span>: 验单逻辑</div><div class="line">    <span class="keyword">Given</span> 我根据 <span class="variable">&lt;mprpc_data_file&gt;</span> 文件中的配置建立运费信息</div><div class="line">    <span class="keyword">And</span> 我根据 <span class="variable">&lt;mock_data_file&gt;</span> 文件中的配置制造mock商品信息</div><div class="line">    <span class="keyword">And</span> 我从 <span class="variable">&lt;request_data_file&gt;</span> 文件中读取某http请求</div><div class="line">    <span class="keyword">And</span> 我对部分请求字段进行md5加密</div><div class="line">    <span class="keyword">When</span> 我用post方法发送该请求至oc的话</div><div class="line">    <span class="keyword">Then</span> 我将得到与 <span class="variable">&lt;response_data_file&gt;</span> 文件中相同的json串</div><div class="line"></div><div class="line">  <span class="keyword">Examples</span>: case_1: 默认全国8块运费</div><div class="line">    <span class="string">| mprpc_data_file | mock_data_file | request_data_file | response_data_file |</span></div><div class="line">    | empty.json | check_mock_1.yaml | check_request_1.yaml | check_response_1.json |</div></pre></td></tr></table></figure>
+
+<h1 id="What">What</h1>
+<h2 id="Basic_BDD_framework">Basic BDD framework</h2>
+<ul>
+<li>BDD Common</li>
+<li>Request</li>
+<li>Response assert</li>
+<li>Setup</li>
+<li>Teardown</li>
+<li>Stub</li>
+<li>Mock</li>
+<li>DB assert</li>
+<li>NoSQL assert</li>
+<li>Extend and Overload</li>
+<li>Exception </li>
+<li>Log and Debug</li>
+<li>Perf</li>
+</ul>
+<h2 id="Potal_testcase_manager">Potal testcase manager</h2>
+<h1 id="How">How</h1>
+<p>粉红色部分需要代码二次封装 </p>
+<p><img src="/images/cucumber/cucumber扩展想法.png" alt="image"></p>
+<ul>
+<li>Request and Response and assert and Setup and Teardown is supported by cucumber bdd basic framework.</li>
+<li>Stub and Mock,we will use webmock.  </li>
+<li>Others will dev.</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/11/cucumber-zh-feature/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	12月 12 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 hezhiyong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nginx负载均衡 | hezhiyong`s blog</title>
+  <meta name="author" content="hezhiyong">
+  
+  <meta name="description" content="selenium | robotframwrok | cucumber | TDD | BDD | juint | testng | fitnesse">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="nginx负载均衡"/>
+  <meta property="og:site_name" content="hezhiyong`s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">hezhiyong`s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> nginx负载均衡</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <figure class="highlight config"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment">### 使用负载均衡的话,可以修改配置http节点如下：</span></div><div class="line"></div><div class="line">    <span class="comment">#设定http服务器，利用它的反向代理功能提供负载均衡支持 </span></div><div class="line">    <span class="title">http</span> {</div><div class="line">      <span class="comment">#设定mime类型,类型由mime.type文件定义</span></div><div class="line">      <span class="title">include</span>         /etc/nginx/mime.types;</div><div class="line">      <span class="title">default_type</span>    application/octet-stream;</div><div class="line"></div><div class="line">      <span class="comment">#设定日志格式</span></div><div class="line">      <span class="title">access_log</span>      /var/log/nginx/access.log;</div><div class="line"></div><div class="line">      <span class="comment">#省略上文有的一些配置节点</span></div><div class="line">      <span class="comment">#。。。。。。。。。。</span></div><div class="line"></div><div class="line">      <span class="comment">#设定负载均衡的服务器列表</span></div><div class="line">      <span class="title">upstream</span> mysvr {</div><div class="line">          <span class="comment">#weigth参数表示权值，权值越高被分配到的几率越大</span></div><div class="line">          <span class="title">server</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.1x:<span class="number">3128</span> weight=<span class="number">5</span>;</div><div class="line">          <span class="comment">#本机上的Squid开启3128端口,不是必须要squid</span></div><div class="line">          <span class="title">server</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.2x:<span class="number">80</span>    weight=<span class="number">1</span>;</div><div class="line">          <span class="title">server</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.3x:<span class="number">80</span>    weight=<span class="number">6</span>;</div><div class="line">       }</div><div class="line">        </div><div class="line">      <span class="title">upstream</span> mysvr2 {</div><div class="line">          <span class="comment">#weigth参数表示权值，权值越高被分配到的几率越大</span></div><div class="line">          <span class="title">server</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.x:<span class="number">80</span>    weight=<span class="number">1</span>;</div><div class="line">          <span class="title">server</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.x:<span class="number">80</span>    weight=<span class="number">6</span>;</div><div class="line">       }</div><div class="line"></div><div class="line">      <span class="comment">#第一个虚拟服务器</span></div><div class="line">      <span class="title">server</span> {</div><div class="line">          <span class="comment">#侦听192.168.8.x的80端口</span></div><div class="line">          <span class="title">listen</span>         <span class="number">80</span>;</div><div class="line">          <span class="title">server_name</span>    <span class="number">192</span>.<span class="number">168</span>.<span class="number">8</span>.x;</div><div class="line"></div><div class="line">          <span class="comment">#对aspx后缀的进行负载均衡请求</span></div><div class="line">          <span class="title">location</span> <span class="regexp">~ .*\.aspx$</span> {</div><div class="line">              <span class="comment">#定义服务器的默认网站根目录位置</span></div><div class="line">              <span class="title">root</span>     /root; </div><div class="line">              <span class="comment">#定义首页索引文件的名称</span></div><div class="line">              <span class="title">index</span> index.php index.html index.htm;</div><div class="line">            </div><div class="line">              <span class="comment">#请求转向mysvr 定义的服务器列表</span></div><div class="line">              <span class="title">proxy_pass</span>    <span class="url">http://mysvr</span> ;</div><div class="line"></div><div class="line">              <span class="comment">#以下是一些反向代理的配置可删除.</span></div><div class="line"></div><div class="line">              <span class="title">proxy_redirect</span> <span class="built_in">off</span>;</div><div class="line"></div><div class="line">              <span class="comment">#后端的Web服务器可以通过X-Forwarded-For获取用户真实IP</span></div><div class="line">              <span class="title">proxy_set_header</span> Host <span class="variable">$host</span>;</div><div class="line">              <span class="title">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">              <span class="title">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line"></div><div class="line">              <span class="comment">#允许客户端请求的最大单文件字节数</span></div><div class="line">              <span class="title">client_max_body_size</span> <span class="number">10m</span>; </div><div class="line"></div><div class="line">              <span class="comment">#缓冲区代理缓冲用户端请求的最大字节数，</span></div><div class="line">              <span class="title">client_body_buffer_size</span> <span class="number">128k</span>;</div><div class="line"></div><div class="line">              <span class="comment">#nginx跟后端服务器连接超时时间(代理连接超时)</span></div><div class="line">               <span class="title">proxy_connect_timeout</span> <span class="number">90</span>;</div><div class="line">  </div><div class="line">              <span class="comment">#连接成功后，后端服务器响应时间(代理接收超时)</span></div><div class="line">              <span class="title">proxy_read_timeout</span> <span class="number">90</span>;</div><div class="line"></div><div class="line">              <span class="comment">#设置代理服务器（nginx）保存用户头信息的缓冲区大小</span></div><div class="line">              <span class="title">proxy_buffer_size</span> <span class="number">4k</span>;</div><div class="line"></div><div class="line">              <span class="comment">#proxy_buffers缓冲区，网页平均在32k以下的话，这样设置</span></div><div class="line">              <span class="title">proxy_buffers</span> <span class="number">4</span> <span class="number">32k</span>;</div><div class="line"></div><div class="line">              <span class="comment">#高负荷下缓冲大小（proxy_buffers*2）</span></div><div class="line">              <span class="title">proxy_busy_buffers_size</span> <span class="number">64k</span>; </div><div class="line"></div><div class="line">              <span class="comment">#设定缓存文件夹大小，大于这个值，将从upstream服务器传</span></div><div class="line">              <span class="title">proxy_temp_file_write_size</span> <span class="number">64k</span>;    </div><div class="line"></div><div class="line">          }</div><div class="line">       }</div><div class="line">    }</div></pre></td></tr></table></figure>
+
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/12/11/vimrc/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/10/hexo-table/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	12月 11 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/linux/">linux<span>4</span></a></li> <li><a href="/categories/linux/nginx/">nginx<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/nginx/">nginx<span>4</span></a></li> <li><a href="/tags/linux/">linux<span>6</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 hezhiyong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

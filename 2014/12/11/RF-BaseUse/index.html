@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hezhiyong`s blog</title>
+  <meta name="author" content="hezhiyong">
+  
+  <meta name="description" content="selenium | robotframwrok | cucumber | TDD | BDD | juint | testng | fitnesse">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="hezhiyong`s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">hezhiyong`s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> </h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h1 id="robotframework+selenium2分享">robotframework+selenium2分享</h1>
+<h1 id="1_robotframework介绍">1 robotframework介绍</h1>
+<p>robotframework是一款基于关键字驱动的测试框架。<br>什么是关键字？  </p>
+<ul>
+<li>与测试相关的配置信息是关键字</li>
+<li>测试库中的测试接口函数名是关键字  </li>
+<li>用户自定义变量名是关键字</li>
+<li>测试用例中的每一步测试的参数也是关键字  </li>
+</ul>
+<p>robotramework负责将这些关键字进行解析并连接起来，生成相应的测试行为执行我们想得到的自动化测试</p>
+<h1 id="2_robotframework安装">2 robotframework安装</h1>
+<h2 id="2-1_基础环境">2.1 基础环境</h2>
+<ul>
+<li>python2.7.x  </li>
+<li>setuptools  </li>
+<li>pip <h2 id="2-2_测试库">2.2 测试库</h2>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install robotframework   </div><div class="line">pip install Selenium2Library</div></pre></td></tr></table></figure>
+
+<h2 id="2-1_IDE">2.1 IDE</h2>
+<ul>
+<li>wxPython是Robot Framework RIDE依赖库，从<a href="http://wxpython.org/download.php#stable" target="_blank" rel="external">http://wxpython.org/download.php#stable</a> 下载对应版本进行安装  </li>
+<li>从<a href="https://code.google.com/p/robotframework-ride/downloads/list" target="_blank" rel="external">https://code.google.com/p/robotframework-ride/downloads/list</a> 下载RIDE的合适版本，进行安装。<h2 id="2-4_Windows懒人包">2.4 Windows懒人包</h2>
+Windows下的一键安装：<br><a href="https://code.google.com/p/robotframework/wiki/Installation#One_Click_Installer" target="_blank" rel="external">https://code.google.com/p/robotframework/wiki/Installation#One_Click_Installer</a> </li>
+</ul>
+<h1 id="3_一个简单实例">3 一个简单实例</h1>
+<h2 id="3-1_新建Project">3.1 新建Project</h2>
+<p>启动RIDE（执行ride.py）name填写Test，选择Type为Dirctory，路径根据自己需要选择，建议最好不要在中文路径下，以免发生问题<br><img src="http://i.imgur.com/yoOeifK.png" alt="">  </p>
+<h2 id="3-2_新建test_suit">3.2 新建test suit</h2>
+<p>在工程下添加test suite，或者使用快捷键Ctrl+Shift+F，创建suit。如下，suit的类型选择File，它是一组测试用例的集合，是一个txt格式</p>
+<h2 id="3-3_新建test_case">3.3 新建test case</h2>
+<p>在test suit下右键添加New Test Case，或者使用Ctrl+Shift+T，创建测试用例，如下：<br>测试用例的描述，可根据自己需要，但最好简明扼要得描述到该Case的关键测试点。  </p>
+<h2 id="3-4_添加资源文件">3.4 添加资源文件</h2>
+<p>在工程Test下，通过右键添加New Resource，根据自己需要，填写命名，如resource  </p>
+<h2 id="3-5_为资源添加关键字">3.5 为资源添加关键字</h2>
+<p>象出来关键字的作用其实是为了方便Case使用。关键字一般都保存在resource目录下。在resource下，选择添加New User Keyword，添加相应的关键字名称。关键字一般是一个动作，所以最好是动宾结构的一个短语，如“打开浏览器”、“关闭浏览器”等。  </p>
+<p>在关键字的工作区中添加相应的执行体。如调用selenium的库关键字：open browser，并填写相应的参数。  </p>
+<p>通过F5可以打开当前可用的库关键字的使用方法及参数，如下：  </p>
+<h2 id="3-6_基本配置">3.6 基本配置</h2>
+<p>接下来在test suit中配置，因为需要用到selenium，所以需要预先启动selenium server，我们需要在suite的setting里设置suite启动和结束的keyword，即Start Selenium Server和Stop Selenium Server，在运行时需要通过它帮助我们自动启动selenium server，如图：  </p>
+<p>另外还需要做着两个步骤：<br>通过Library 导入所要用到的SeleniumLibrary；<br>通过Resource导入刚才配置的关键字集合resource.txt；</p>
+<p>接下来在test case中配置，因为需要用到 “打开浏览器” 关键字，并且给其参数，如图：</p>
+<h2 id="3-7_测试运行">3.7 测试运行</h2>
+<p>配置完成之后，勾选测试用例，选择Run下“Start”运行测试用例，结果如图所所示： </p>
+<p>对此再补充几句：<br>1.选中测试用例，通过快捷键F8，可运行测试用例；<br>2.在Arguments后添加选项参数：—loglevel trace -d E:\ 可指定log级别和日志输出目录；  </p>
+<h1 id="4_模板使用">4 模板使用</h1>
+<p>本节介绍如何使用模板。<br>上一节已经建立了一个关键字“打开浏览器”，我们这里使用该关键字作为测试用例的模板。<br>4.1 基本配置（使用模板）<br>接下来在test suit中配置，因为需要用到selenium，所以需要预先启动selenium server，我们需要在suite的setting里设置suite启动和结束的keyword，即Start Selenium Server和Stop Selenium Server，在运行时需要通过它帮助我们自动启动selenium server，如图：  </p>
+<p>另外还需要做着两个步骤：<br>通过Library 导入所要用到的SeleniumLibrary；<br>通过Resource导入刚才配置的关键字集合resource.txt；</p>
+<p>接下来在test case中配置，在 text edit模式下，如图：  </p>
+<p>在 <strong><em> Test Cases </em></strong> 后添加模板的传入参数。然后在用例配置参数的值。  </p>
+<p>配置完成之后，勾选测试用例，选择Run下“Start”运行测试用例，结果如图所所示：   </p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/12/11/src-install-nginx-md/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/11/vimStudy/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	12月 11 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 hezhiyong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

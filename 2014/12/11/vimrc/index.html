@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vimrc | hezhiyong`s blog</title>
+  <meta name="author" content="hezhiyong">
+  
+  <meta name="description" content="selenium | robotframwrok | cucumber | TDD | BDD | juint | testng | fitnesse">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="vimrc"/>
+  <meta property="og:site_name" content="hezhiyong`s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">hezhiyong`s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> vimrc</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="string">" history存储长度</span></div><div class="line">set history=1000</div><div class="line"></div><div class="line">" 检测文件类型</div><div class="line">filetype on</div><div class="line"><span class="string">" 针对不同的文件类型采用不同的缩进格式</span></div><div class="line">filetype indent on</div><div class="line">" 允许插件</div><div class="line">filetype plugin on  </div><div class="line"><span class="string">" 启动自动补全</span></div><div class="line">filetype plugin indent on  </div><div class="line">" 中文字符支持</div><div class="line"><span class="keyword">set</span> fileencoding=cp936</div><div class="line"><span class="keyword">set</span> fileencodings=utf-<span class="number">8</span>,ucs-bom,gb18030,gbk,gb2312,cp936</div><div class="line"><span class="keyword">set</span> termencoding=utf-<span class="number">8</span></div><div class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span></div><div class="line"></div><div class="line"><span class="keyword">set</span> autoindent</div><div class="line"></div><div class="line"><span class="string">" 开启语法高亮</span></div><div class="line">syntax enable</div><div class="line">syntax on</div><div class="line">" 高亮查找</div><div class="line"><span class="keyword">set</span> hlsearch</div><div class="line"></div><div class="line"><span class="string">" 取消备份</span></div><div class="line">" Turn backup off, since most stuff is <span class="keyword">in</span> SVN, git et.c anyway...  </div><div class="line"><span class="keyword">set</span> nobackup  </div><div class="line"><span class="keyword">set</span> nowb  </div><div class="line"><span class="keyword">set</span> noswapfile  </div><div class="line"></div><div class="line"><span class="string">" 显示行号</span></div><div class="line">set number</div><div class="line">" 为方便复制，用&lt;F2&gt;开启/关闭行号显示</div><div class="line">nnoremap &lt;F2&gt; :<span class="keyword">set</span> nonumber!&lt;CR&gt;:<span class="keyword">set</span> foldcolumn=<span class="number">0</span>&lt;CR&gt;</div><div class="line"><span class="string">" 取消换行</span></div><div class="line">set nowrap</div><div class="line">" 显示当前的行号列号：  </div><div class="line"><span class="keyword">set</span> ruler  </div><div class="line"><span class="string">" 在状态栏显示正在输入的命令  </span></div><div class="line">set showcmd</div><div class="line"></div><div class="line">" 代码折叠</div><div class="line"><span class="keyword">set</span> foldenable</div><div class="line"><span class="string">" 折叠方法</span></div><div class="line">" manual    手工折叠</div><div class="line"><span class="string">" indent    使用缩进表示折叠</span></div><div class="line">" expr      使用表达式定义折叠</div><div class="line"><span class="string">" syntax    使用语法定义折叠</span></div><div class="line">" diff      对没有更改的文本进行折叠</div><div class="line"><span class="string">" marker    使用标记进行折叠, 默认标记是 \{\{\{ 和 \}\}\}</span></div><div class="line">set foldmethod=syntax</div><div class="line">" 在左侧显示折叠的层次</div><div class="line"><span class="keyword">set</span> foldcolumn=<span class="number">4</span>  </div><div class="line"><span class="string">" 用空格键来开关折叠</span></div><div class="line">nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;</div></pre></td></tr></table></figure>
+
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/12/11/hexoblog-create/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/11/nginx-load-balance/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	12月 11 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/linux/">linux<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/vim/">vim<span>2</span></a></li> <li><a href="/tags/linux/">linux<span>6</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2014 hezhiyong
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
